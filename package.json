@@ -1,15 +1,13 @@
 {
-  "name": "chat-example",
+  "name": "nrccua-fse-challenge",
   "version": "0.0.0",
-  "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
+  "description": "",
   "main": "server.js",
   "repository": "",
-  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "author": "Tom Piere<tpiere@gmail.com>",
   "dependencies": {
-    "async": "~0.2.8",
     "express": "^3.2.6",
     "request": "^2.79.0",
-    "request-promise": "^4.1.1",
-    "socket.io": "~0.9.14"
+    "request-promise": "^4.1.1"
   }
 }
