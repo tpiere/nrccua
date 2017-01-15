@@ -17,7 +17,6 @@ function getForecastByZipCode(zip) {
 
         coordinatesPromise
             .then(function(coordinates) {
-                console.log('coordinates ', coordinates);
                 var lat = coordinates.postalcodes[0].lat;
                 var lon = coordinates.postalcodes[0].lng;
 
@@ -39,6 +38,5 @@ function getForecastByZipCode(zip) {
 }
 
 function getForecastByCity(city) {
-    console.log('get forecast for ', city);
     return weatherRepository.getForecastByCity(city);
 }

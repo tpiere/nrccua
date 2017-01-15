@@ -10,7 +10,6 @@ var rp = require('request-promise');
 var options = {
     uri: 'http://api.openweathermap.org/data/2.5/forecast',
     qs: {
-        //q: req.query.city + ',us',
         mode: 'json',
         appid: '332eb0680074a9117be05b62c224af22',
         units: 'imperial'
@@ -21,12 +20,12 @@ var options = {
     json: true // Automatically parses the JSON string in the response
 };
 
-function getForecastByCity(city){
+function getForecastByCity(city) {
     options.qs.q = city + ',us';
     return rp(options);
 }
 
-function getForecastByCoordinates(lat, lon){
+function getForecastByCoordinates(lat, lon) {
     options.qs.lat = lat;
     options.qs.lon = lon;
     return rp(options);
