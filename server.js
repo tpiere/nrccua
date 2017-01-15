@@ -1,6 +1,6 @@
-var express = require('express');
-var app = express();
-var forecastManager = require('./forecastManager.js')
+var express = require('express'),
+    app = express(),
+    forecastManager = require('./forecastManager.js');
 
 app.get('/', function(req, res) {
     res.send('use /forecast?city={cityName} or /forecast?zip={zipCode} to retrieve a 5 day forecast');
@@ -25,7 +25,6 @@ app.get('/forecast', function(req, res) {
                 res.json(forecast);
             })
             .catch(function(err) {
-                // API call failed...
                 console.log('rest call error ', err);
                 res.json(err);
             });
@@ -40,6 +39,5 @@ app.get('/forecast', function(req, res) {
 
 
 app.listen(process.env.PORT, function() {
-    console.log('Example app listening on port ', process.env.PORT);
-    console.log('ip: ', process.env.IP);
+    console.log('Forecast app listening on port ', process.env.PORT);
 });

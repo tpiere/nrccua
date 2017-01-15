@@ -15,10 +15,7 @@ function getLatLongForZipCode(zipCode) {
             postalcode: zipCode,
             username: 'nrccua_test'
         },
-        headers: {
-            'User-Agent': 'Request-Promise'
-        },
-        json: true // Automatically parses the JSON string in the response
+        json: true
     };
 
     return rp(options);

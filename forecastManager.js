@@ -1,24 +1,22 @@
 var forecastManager = {
-    getForecastByZipCode: getForecastByZipCode,
-    getForecastByCity: getForecastByCity
-};
+        getForecastByZipCode: getForecastByZipCode,
+        getForecastByCity: getForecastByCity
+    },
+    weatherRepository = require('./weatherRepository.js'),
+    postalCodeRepository = require('./postalCodeRepository.js');
+
 
 module.exports = forecastManager;
 
-var weatherRepository = require('./weatherRepository.js');
-var postalCodeRepository = require('./postalCodeRepository.js');
-
 
 function getForecastByZipCode(zip) {
-    console.log('get forecast for ', zip);
-
     var promise = new Promise(function(resolve, reject) {
         var coordinatesPromise = postalCodeRepository.getLatLongForZipCode(zip);
 
         coordinatesPromise
             .then(function(coordinates) {
-                var lat = coordinates.postalcodes[0].lat;
-                var lon = coordinates.postalcodes[0].lng;
+                var lat = coordinates.postalcodes[0].lat,
+                    lon = coordinates.postalcodes[0].lng;
 
                 return weatherRepository.getForecastByCoordinates(lat, lon);
 
