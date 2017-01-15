@@ -15,6 +15,11 @@ function getForecastByZipCode(zip) {
 
         coordinatesPromise
             .then(function(coordinates) {
+                
+                if(coordinates.postalcodes.length === 0){
+                    reject({message:'Could not find coordinates for zip code ' + zip});
+                    return;
+                }
                 var lat = coordinates.postalcodes[0].lat,
                     lon = coordinates.postalcodes[0].lng;
 

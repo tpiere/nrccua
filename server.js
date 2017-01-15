@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express(),
-    forecastManager = require('./forecastManager.js');
+    forecastManager = require('./forecastManager.js'),
+    port = typeof process.env.PORT !== 'undefined' ? process.env.PORT : '8080';
 
 app.get('/', function(req, res) {
     res.send('use /forecast?city={cityName} or /forecast?zip={zipCode} to retrieve a 5 day forecast');
@@ -38,6 +39,6 @@ app.get('/forecast', function(req, res) {
 });
 
 
-app.listen(process.env.PORT, function() {
-    console.log('Forecast app listening on port ', process.env.PORT);
+app.listen(port, function() {
+    console.log('Forecast app listening on port ', port);
 });
